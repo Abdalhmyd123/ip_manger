@@ -1,0 +1,59 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+
+void main() {
+  runApp(const IpManagerApp());
+}
+
+class IpManagerApp extends StatelessWidget {
+  const IpManagerApp({super.key});
+
+  static const Color bg = Color.fromRGBO(2, 25, 55, 1);
+  static const Color green1 = Color(0xFF2D6A4F);
+  static const Color green2 = Color(0xFF409F7A);
+  static const Color green3 = Color(0xFF3B8C6E);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'IP Manager',
+      debugShowCheckedModeBanner: false,
+      locale: const Locale('ar'),
+      supportedLocales: const [Locale('ar')],
+      localizationsDelegates: const [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      theme: ThemeData(
+        useMaterial3: true,
+        brightness: Brightness.dark,
+        scaffoldBackgroundColor: bg,
+        colorScheme: const ColorScheme.dark(
+          primary: green2,
+          secondary: green3,
+          surface: bg,
+        ),
+      ),
+      home: const HomeScreen(),
+    );
+  }
+}
+
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Scaffold(
+      body: SafeArea(
+        child: Center(
+          child: Text(
+            'IP Manager',
+            style: TextStyle(fontSize: 28, fontWeight: FontWeight.w400),
+          ),
+        ),
+      ),
+    );
+  }
+}
